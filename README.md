@@ -1,2 +1,2 @@
-# Furniture-Ordering-Website12
+# Furniture-Ordering-Website
 furniture website for ordering furniture
