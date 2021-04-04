@@ -1,7 +1,7 @@
 # Furniture Ordering Website
----
+
 ## Team Members: Țoncu Ion, Cotorobai Vlad
----
+
 ## General Description:
 ---
 This website's main goal is helping clients, designers and companies by offering the possibility to choose
