@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CompanyService extends SessionUtil implements CompanyDAO {
     @Override
-    public void addDesigner(Company company) throws SQLException {
+    public void addCompany(Company company) throws SQLException {
         openTransactionSession();
         Session session=getSession();
         session.save(company);
