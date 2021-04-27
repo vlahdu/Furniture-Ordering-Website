@@ -1,7 +1,7 @@
 package com.ex;
 
 import com.ex.bl.SessionUtil;
-import com.ex.config.SpringConfig;
+//import com.ex.config.SpringConfig;
 
 import com.ex.entities.actors.Customer;
 import org.hibernate.Session;
@@ -21,6 +21,7 @@ public class Main {
 
         //AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         SessionUtil sessionUtil=new SessionUtil();
+
 //        sessionUtil.openTransactionSession();
 //        Session session= sessionUtil.getSession();
 ////
@@ -33,10 +34,20 @@ public class Main {
 //        sessionUtil.closeTransactionSession();
 //        //context.close();
         sessionUtil.openTransactionSession();
-        Session session=sessionUtil.getSession();
-        Customer c= new Customer();
-        c.setName("customer1");
-        session.save(c);
+      Session session=sessionUtil.getSession();
+//        Customer c= new Customer();
+//        c.setName("customer1");
+//        session.save(c);
+//        for(int i=0;i<10;i++){
+//            A a=new A();
+//            a.setName("a=efgsege");
+//            session.save(a);
+//        }
+        String sql ="select * from a";
+        Query query=session.createNativeQuery(sql).addEntity(A.class);
+        List<A> aList=query.list();
+        for(A a:aList) System.out.println(a);
+//
 //                String sql="SELECT * FROM customer";
 //                Session session1=sessionUtil.getSession();
 //                Query query =session1.createNativeQuery(sql).addEntity(Customer.class);
