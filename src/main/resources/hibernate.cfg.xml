@@ -24,6 +24,7 @@
         <mapping class="com.ex.entities.project.TableAndChairs"/>
         <mapping class="com.ex.entities.project.Sofa"/>
         <mapping class="com.ex.entities.project.Armchairs"/>
+        <mapping class="com.ex.A"/>
 
 
 
