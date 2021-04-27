@@ -1,16 +1,11 @@
 package com.ex;
 
 import com.ex.bl.SessionUtil;
-import com.ex.config.SpringConfig;
-
 import com.ex.entities.actors.Customer;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /*
  * @IonToncu
@@ -30,18 +25,18 @@ public class Main {
 //
 //
 ////        session.save(customer);
-//        sessionUtil.closeTransactionSession();
+//       sessionUtil.closeTransactionSession();
 //        //context.close();
-        sessionUtil.openTransactionSession();
-        Session session=sessionUtil.getSession();
-        Customer c= new Customer();
-        c.setName("customer1");
-        session.save(c);
-//                String sql="SELECT * FROM customer";
-//                Session session1=sessionUtil.getSession();
-//                Query query =session1.createNativeQuery(sql).addEntity(Customer.class);
-//                List<Customer> customerList=query.list();
-//                for(Customer c:customerList)
+       sessionUtil.openTransactionSession();
+//        Session session=sessionUtil.getSession();
+//        Customer c= new Customer();
+//        c.setName("customer1");
+//        session.save(c);
+                String sql="SELECT * FROM customer";
+                Session session1=sessionUtil.getSession();
+                Query query =session1.createNativeQuery(sql).addEntity(Customer.class);
+                List<Customer> customerList=query.list();
+                for(Customer c:customerList)
 
 //                String sql="select * from customer";
 //                Session session=sessionUtil.getSession();
