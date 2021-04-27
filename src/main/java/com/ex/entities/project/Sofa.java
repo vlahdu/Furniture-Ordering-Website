@@ -5,7 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Armchairs")
+@DiscriminatorValue("Sofa")
 @Component
 public class Sofa extends Project{
     private String dimension;

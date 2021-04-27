@@ -1,11 +1,9 @@
 package com.ex.bl;
 
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-/*
- * @IonToncu
- *
- * */
+
 public class SessionUtil {
     private Session session;
     private Transaction transaction;

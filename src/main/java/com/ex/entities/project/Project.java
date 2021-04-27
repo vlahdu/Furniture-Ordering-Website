@@ -3,11 +3,10 @@ package com.ex.entities.project;
 
 import javax.persistence.*;
 
-@Entity(name="Project")
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE_OF_PROJECT",
-        discriminatorType = DiscriminatorType.STRING )
-public class Project {
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING )
+public abstract class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -17,6 +16,8 @@ public class Project {
     private String coating;
     private double price;
 
+    public Project() {
+    }
 
     public void setId(Long id) {
         this.id = id;
