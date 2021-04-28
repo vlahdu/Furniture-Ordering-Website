@@ -10,6 +10,13 @@ import java.util.List;
  *
  * */
 public interface CompanyDAO {
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> IonToncu
+=======
+>>>>>>> 560879f4e7313fca9f38b2480cab9f11aca4f726
     void addCompany(Company company)throws SQLException;
     List<Company> getAll()throws SQLException;
     Company getById(long id)throws SQLException;
