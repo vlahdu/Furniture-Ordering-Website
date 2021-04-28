@@ -4,30 +4,25 @@ import com.ex.bl.SessionUtil;
 
 //import com.ex.config.SpringConfig;
 
-import com.ex.entities.actors.Customer;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
+import com.ex.entities.actors.Company;
 
-import java.util.List;
+import com.ex.entityservices.CompanyService;
+
+
+import java.sql.SQLException;
+
 
 /*
  * @IonToncu
  *
  * */
 public class Main {
-    public static void main(String[] args) {
-
-       SessionUtil sessionUtil=new SessionUtil();
-       sessionUtil.openTransactionSession();
-
-        Session session=sessionUtil.getSession();
-        String sql="select * from a";
-        Query query=session.createNativeQuery(sql).addEntity(A.class);
-        List<A> aList=query.list();
-        for(A a:aList) System.out.println(a);
-
-        sessionUtil.closeTransactionSession();
-        System.out.println("done");
+    public static void main(String[] args) throws SQLException {
+        CompanyService companyService=new CompanyService();
+        Company c=new Company();
+                c.setCompanyName("avd");
+        //companyService.addCompany(c);
+        System.out.println(companyService.getById(1).getCompanyName());
 
 
     }
