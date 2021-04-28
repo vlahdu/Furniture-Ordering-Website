@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>something intristing</title>
+</head>
+<body>
+<h1>ceva</h1>
+<h1 th:text="${name}"> </h1>
+<p th:text="${lastname}"></p>
+<div th:each="customer:${customers}">
+    <a th:href="@{/something?name=${customer.getName()&lastname=lastname}" th:text="${customer.getName()}">customer</a>
+</div>
+
+</body>
+</html>

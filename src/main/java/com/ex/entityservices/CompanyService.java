@@ -12,7 +12,14 @@ import java.util.List;
 public class CompanyService extends SessionUtil implements CompanyDAO {
     @Override
     public void addCompany(Company company) throws SQLException {
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
+>>>>>>> IonToncu
+=======
+
+>>>>>>> 560879f4e7313fca9f38b2480cab9f11aca4f726
         openTransactionSession();
         Session session=getSession();
         session.save(company);
