@@ -21,10 +21,18 @@ public class Main {
        sessionUtil.openTransactionSession();
 
         Session session=sessionUtil.getSession();
-        String sql="select * from a";
-        Query query=session.createNativeQuery(sql).addEntity(A.class);
-        List<A> aList=query.list();
-        for(A a:aList) System.out.println(a);
+
+        String sql = "select  * from customer";
+        Query query = session.createNativeQuery(sql).addEntity(Customer.class);
+
+        List <Customer> customerList = query.list();
+
+        for (Customer customer : customerList)
+        {
+            System.out.println(customer);
+
+        }
+
 
         sessionUtil.closeTransactionSession();
         System.out.println("done");
