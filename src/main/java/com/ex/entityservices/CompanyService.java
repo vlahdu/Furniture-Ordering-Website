@@ -13,9 +13,13 @@ public class CompanyService extends SessionUtil implements CompanyDAO {
     @Override
     public void addCompany(Company company) throws SQLException {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> IonToncu
+=======
+
+>>>>>>> 560879f4e7313fca9f38b2480cab9f11aca4f726
         openTransactionSession();
         Session session=getSession();
         session.save(company);
@@ -38,9 +42,8 @@ public class CompanyService extends SessionUtil implements CompanyDAO {
     public Company getById(long id) throws SQLException {
         openTransactionSession();
         Session session=getSession();
-        String sql="SELECT * FROM company WHERE ID =:id";
+        String sql="SELECT * FROM company WHERE ID = " + id ;
         Query query=session.createNativeQuery(sql).addEntity(Company.class);
-        query.setParameter("id",id);
         Company company=(Company)query.getSingleResult();
         closeTransactionSession();
         return company;

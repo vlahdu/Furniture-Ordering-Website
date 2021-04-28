@@ -2,7 +2,11 @@ package com.ex;
 
 import com.ex.bl.SessionUtil;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> 560879f4e7313fca9f38b2480cab9f11aca4f726
 //import com.ex.config.SpringConfig;
 
 >>>>>>> IonToncu
@@ -19,6 +23,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+<<<<<<< HEAD
         //AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         SessionUtil sessionUtil=new SessionUtil();
 
@@ -83,6 +88,27 @@ public class Main {
 //            //closeTransactionSession();
                 sessionUtil.closeTransactionSession();
         System.out.println("ceva");
+=======
+       SessionUtil sessionUtil=new SessionUtil();
+       sessionUtil.openTransactionSession();
+
+        Session session=sessionUtil.getSession();
+
+        String sql = "select  * from customer";
+        Query query = session.createNativeQuery(sql).addEntity(Customer.class);
+
+        List <Customer> customerList = query.list();
+
+        for (Customer customer : customerList)
+        {
+            System.out.println(customer);
+
+        }
+
+
+        sessionUtil.closeTransactionSession();
+        System.out.println("done");
+>>>>>>> 560879f4e7313fca9f38b2480cab9f11aca4f726
 
 
     }
