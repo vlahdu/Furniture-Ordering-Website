@@ -3,12 +3,13 @@ package com.ex.entities.actors;
 import javax.persistence.*;
 import java.util.Set;
 @Entity
-public class Company {
+public class Company extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String companyName;
     private String address;
+
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Customer> customerSet;
     @ManyToMany(cascade = CascadeType.ALL)
@@ -18,6 +19,10 @@ public class Company {
             inverseJoinColumns ={@JoinColumn(name = "DESIGNER")}
     )
     private Set<Designer> designerSet;
+
+    public Company() {
+        this.role="COMPANY";
+    }
 
 
     public long getId() {

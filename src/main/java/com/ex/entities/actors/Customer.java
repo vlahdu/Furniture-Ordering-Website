@@ -6,13 +6,17 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Customer {
+public class Customer extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Project>likedProjects;
     private String name;
+
+    public Customer() {
+        this.role="CUSTOMER";
+    }
 
     public Set<Project> getLikedProjects() {
         return likedProjects;

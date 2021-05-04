@@ -1,13 +1,11 @@
 package com.ex.entities.actors;
 
 import com.ex.entities.project.Project;
-
-
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Designer {
+public class Designer extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -17,6 +15,9 @@ public class Designer {
     private Set<Customer> customerSet;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Project> ownProjects;
+    public Designer(){
+        this.role="DESIGNER";
+    }
 
     public Set<Company> getCompanyCollaboration() {
         return companyCollaboration;

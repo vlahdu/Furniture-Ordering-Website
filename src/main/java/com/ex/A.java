@@ -11,6 +11,11 @@ public class A {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    public A(){}
+
+    public A(String name){
+        this.name=name;
+    }
 
     public void setId(Long id) {
         this.id = id;
