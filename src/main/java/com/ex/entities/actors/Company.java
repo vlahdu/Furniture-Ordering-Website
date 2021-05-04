@@ -2,6 +2,9 @@ package com.ex.entities.actors;
 
 import javax.persistence.*;
 import java.util.Set;
+/**
+ * @author IonToncu
+ */
 @Entity
 public class Company extends User {
     @Id

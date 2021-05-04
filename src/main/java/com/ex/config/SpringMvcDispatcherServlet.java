@@ -1,9 +1,7 @@
 package com.ex.config;
-/*
- * @IonToncu
- *
- * */
-
+/**
+ * @author IonToncu
+ */
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class SpringMvcDispatcherServlet extends AbstractAnnotationConfigDispatcherServletInitializer {

@@ -5,10 +5,9 @@ import com.ex.entities.actors.Company;
 import java.sql.SQLException;
 import java.util.List;
 
-/*
- * @IonToncu
- *
- * */
+/**
+ * @author IonToncu
+ */
 public interface CompanyDAO {
 
     void addCompany(Company company)throws SQLException;

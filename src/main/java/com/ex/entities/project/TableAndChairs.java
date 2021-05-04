@@ -3,7 +3,9 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
+/**
+ * @author IonToncu
+ */
 @Entity
 @DiscriminatorValue("TableAndChairs")
 @Component

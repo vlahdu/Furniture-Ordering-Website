@@ -8,7 +8,9 @@ import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.List;
-
+/**
+ * @author IonToncu
+ */
 public class CompanyService extends SessionUtil implements CompanyDAO {
     @Override
     public void addCompany(Company company) throws SQLException {

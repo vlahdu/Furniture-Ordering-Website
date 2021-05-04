@@ -2,6 +2,9 @@ package com.ex.entities.actors;
 
 import org.springframework.security.core.GrantedAuthority;
 
+/**
+ * @author IonToncu
+ */
 public class Role implements GrantedAuthority {
     private String name;
 

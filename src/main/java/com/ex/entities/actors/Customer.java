@@ -4,7 +4,9 @@ import com.ex.entities.project.Project;
 
 import javax.persistence.*;
 import java.util.Set;
-
+/**
+ * @author IonToncu
+ */
 @Entity
 public class Customer extends User {
     @Id
