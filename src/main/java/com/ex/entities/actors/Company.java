@@ -28,11 +28,11 @@ public class Company {
         this.id = id;
     }
 
-    public String getCompanyName() {
+    public String getName() {
         return companyName;
     }
 
-    public void setCompanyName(String companyName) {
+    public void setName(String companyName) {
         this.companyName = companyName;
     }
 

@@ -4,10 +4,10 @@
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <!-- property name="connection.driver_class">com.mysql.jdbc.Driver</property -->
-        <property name="connection.url">jdbc:mysql://localhost:3306/furniture</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/fow</property>
         <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">764175</property>
+        <property name="connection.password">Deval231</property>
         <property name="connection.pool_size">3</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
@@ -24,6 +24,7 @@
         <mapping class="com.ex.entities.project.TableAndChairs"/>
         <mapping class="com.ex.entities.project.Sofa"/>
         <mapping class="com.ex.entities.project.Armchairs"/>
+        <mapping class="com.ex.A"/>
 
 
 

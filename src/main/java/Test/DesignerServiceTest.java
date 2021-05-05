@@ -1,28 +1,28 @@
 package Test;
 
-import com.ex.entityservices.CompanyService;
+import com.ex.entityservices.DesignerService;
 
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CompanyServiceTest {
+class DesignerServiceTest {
 
     @org.junit.jupiter.api.Test
-    void addCompany() {
+    void addDesigner() {
     }
 
     @org.junit.jupiter.api.Test
     @org.junit.jupiter.api.DisplayName("Ensure correct handling of zero")
     void getAll() {
-        assertEquals(0,0,"ceva");
+        assertEquals(0,0,"ceva 3");
     }
 
     @org.junit.jupiter.api.Test
-    @org.junit.jupiter.api.DisplayName("Ensure correct handling of returned name")
+    @org.junit.jupiter.api.DisplayName("Ensure correct handling of returned set")
     void getById() throws SQLException {
-       CompanyService companyService = new CompanyService();
-        assertEquals("comp",companyService.getById(1).getName(),"company name");
+        DesignerService designerService = new DesignerService();
+        assertEquals("comp",designerService.getById(1).getCompanyCollaboration(),"Designer name");
     }
 
     @org.junit.jupiter.api.Test
