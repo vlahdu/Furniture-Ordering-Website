@@ -1,15 +1,16 @@
 package com.ex.entities.actors;
 
 import com.ex.entities.project.Project;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+@DiscriminatorValue("Customer")
+@Component
+public class Customer extends User {
+
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Project>likedProjects;
     private String name;
@@ -33,17 +34,8 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
 }
