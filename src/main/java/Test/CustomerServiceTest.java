@@ -1,8 +1,10 @@
 package Test;
 
+import com.ex.entities.actors.Customer;
 import com.ex.entityservices.CustomerService;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,8 +20,14 @@ class CustomerServiceTest {
 
     @org.junit.jupiter.api.Test
     @org.junit.jupiter.api.DisplayName("Ensure correct handling of zero")
-    void getAll() {
-        assertEquals(0,0,"ceva 2 ");
+    void getAll() throws SQLException {
+        CustomerService customerService = new CustomerService();
+        List<Customer> customerList = customerService.getAll();
+
+        for (Customer customer : customerList)
+        {
+            assertNotNull(customer, "should not be null");
+        }
     }
 
     @org.junit.jupiter.api.Test
@@ -31,6 +39,7 @@ class CustomerServiceTest {
 
     @org.junit.jupiter.api.Test
     void update() {
+        assertEquals(0,0, "ceva");
     }
 
     @org.junit.jupiter.api.Test
