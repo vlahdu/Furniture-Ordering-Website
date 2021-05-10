@@ -1,7 +1,7 @@
 package Test;
 
-import com.ex.entities.actors.Designer;
-import com.ex.entityservices.DesignerService;
+import com.ex.module.entities.actors.Designer;
+import com.ex.module.entityservices.DesignerService;
 
 import java.sql.SQLException;
 import java.util.List;

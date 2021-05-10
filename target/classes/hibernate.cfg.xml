@@ -17,18 +17,14 @@
         <property name="format_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
         <!-- daca nu merge fac drop db-->
-        <mapping class="com.ex.entities.actors.Customer"/>
-        <mapping class="com.ex.entities.actors.Company"/>
-        <mapping class="com.ex.entities.actors.Designer"/>
-        <mapping class="com.ex.entities.project.Project"/>
-        <mapping class="com.ex.entities.project.TableAndChairs"/>
-        <mapping class="com.ex.entities.project.Sofa"/>
-        <mapping class="com.ex.entities.project.Armchairs"/>
-        <mapping class="com.ex.entities.actors.User"/>
-        <mapping class="com.ex.A"/>
-
-
-
+        <mapping class="com.ex.module.entities.actors.Customer"/>
+        <mapping class="com.ex.module.entities.actors.Company"/>
+        <mapping class="com.ex.module.entities.actors.Designer"/>
+        <mapping class="com.ex.module.entities.project.Project"/>
+        <mapping class="com.ex.module.entities.project.TableAndChairs"/>
+        <mapping class="com.ex.module.entities.project.Sofa"/>
+        <mapping class="com.ex.module.entities.project.Armchairs"/>
+        <mapping class="com.ex.module.entities.actors.User"/>
 
     </session-factory>
 </hibernate-configuration>

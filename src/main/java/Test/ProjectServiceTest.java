@@ -1,8 +1,8 @@
 package Test;
 
-import com.ex.entities.project.Armchairs;
-import com.ex.entities.project.Project;
-import com.ex.entityservices.ProjectService;
+import com.ex.module.entities.project.Armchairs;
+import com.ex.module.entities.project.Project;
+import com.ex.module.entityservices.ProjectService;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,7 +1,7 @@
 package Test;
 
-import com.ex.entities.actors.Customer;
-import com.ex.entityservices.CustomerService;
+import com.ex.module.entities.actors.Customer;
+import com.ex.module.entityservices.CustomerService;
 
 import java.sql.SQLException;
 import java.util.List;
