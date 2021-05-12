@@ -54,6 +54,8 @@ public class HelloController {
             return "registration";
         }
         System.out.println(userForm.getRole());
+        System.out.println(userForm.getPassword());
+
 
         if (!userService.saveUser(userForm)){
             model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
