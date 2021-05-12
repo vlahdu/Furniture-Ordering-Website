@@ -1,10 +1,12 @@
 package com.ex.module.entities.actors;
 
 import com.ex.module.entities.project.Project;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,7 +24,14 @@ public class Designer extends User {
     public Set<Company> getCompanyCollaboration() {
         return companyCollaboration;
     }
-
+    public Designer(){
+        this.setRole("DESIGNER");
+    }
+    public Designer(String userName,String password){
+        this();
+        this.setPassword(password);
+        this.setUsername(userName);
+    }
     public void setCompanyCollaboration(Set<Company> companyCollaboration) {
         this.companyCollaboration = companyCollaboration;
     }
@@ -43,4 +52,21 @@ public class Designer extends User {
         this.ownProjects = ownProjects;
     }
 
+    public void  addProject(Project project){
+        if(ownProjects == null) ownProjects=new HashSet<>();
+        ownProjects.add(project);
+    }
+
+    @Override
+    public String toString() {
+        return "Designer{" +
+                "companyCollaboration=" + companyCollaboration +
+                ", customerSet=" + customerSet +
+                ", ownProjects=" + ownProjects +
+                ", id=" + id +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

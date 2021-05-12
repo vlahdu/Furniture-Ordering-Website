@@ -11,7 +11,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class DesignerServiceTest {
 
     @org.junit.jupiter.api.Test
-    void addDesigner() {
+    void addDesigner() throws SQLException {
+        DesignerService designerService = new DesignerService();
+        Designer designer=new Designer("testDesigner","testPassword");
+        try {
+            designerService.addDesigner(designer);
+        }catch (SQLException e){
+            assertFalse(true,"the test throw an exception");
+        }finally {
+            designerService.remove(designer);
+            assertTrue(true,"the test not throw an exception");
+        }
     }
 
     @org.junit.jupiter.api.Test
@@ -29,15 +39,35 @@ class DesignerServiceTest {
     @org.junit.jupiter.api.DisplayName("Ensure correct handling of returned set")
     void getById() throws SQLException {
         DesignerService designerService = new DesignerService();
-        assertNotNull(designerService.getById(34),"check designer not null");
+        assertNotNull(designerService.getById(1),"check designer not null");
     }
 
     @org.junit.jupiter.api.Test
     void update() {
-        assertEquals(0,0, "ceva");
+
+        try{
+            DesignerService designerService = new DesignerService();
+            Designer designer=designerService.getById(1);
+            designerService.update(designer);
+        }catch (SQLException e){
+            assertFalse(true,"the test throw an exception");
+        }finally {
+            assertTrue(true,"the test not throw an exception");
+        }
+
     }
 
     @org.junit.jupiter.api.Test
-    void remove() {
+    void remove() throws SQLException {
+        DesignerService designerService = new DesignerService();
+        Designer designer=new Designer("testDesigner","testPassword");
+        try {
+            designerService.addDesigner(designer);
+            designerService.remove(designer);
+        }catch (SQLException e){
+        assertFalse(true,"the test throw an exception");
+        }finally {
+            assertTrue(true,"the test not throw an exception");
+        }
     }
 }

@@ -9,12 +9,12 @@ import javax.persistence.*;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String name;
+    protected  Long id;
+    protected String name;
     @Column(length = 500)
-    private String description;
-    private String coating;
-    private double price;
+    protected String description;
+    protected String coating;
+    protected double price;
 
     public Project() {
     }
@@ -58,5 +58,13 @@ public class Project {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

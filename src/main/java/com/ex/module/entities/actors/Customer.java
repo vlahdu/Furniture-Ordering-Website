@@ -18,7 +18,9 @@ public class Customer extends User {
     public Set<Project> getLikedProjects() {
         return likedProjects;
     }
-
+    public Customer() {
+        this.setRole("CUSTOMER");
+    }
     public void setLikedProjects(Set<Project> likedProjects) {
         this.likedProjects = likedProjects;
     }

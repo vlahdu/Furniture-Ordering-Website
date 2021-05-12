@@ -53,6 +53,7 @@ public class HelloController {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
+        System.out.println(userForm.getRole());
 
         if (!userService.saveUser(userForm)){
             model.addAttribute("usernameError", "Пользователь с таким именем уже существует");

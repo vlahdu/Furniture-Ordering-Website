@@ -19,6 +19,13 @@ public class Sofa extends Project{
     private String base;
     private String included;
 
+    public Sofa() {
+
+    }
+    public Sofa(String name,String description) {
+        this.setName(name);
+        this.setDescription(description);
+    }
     public String getDimension() {
         return dimension;
     }
@@ -97,5 +104,13 @@ public class Sofa extends Project{
 
     public void setIncluded(String included) {
         this.included = included;
+    }
+
+    @Override
+    public String toString() {
+        return "Sofa{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

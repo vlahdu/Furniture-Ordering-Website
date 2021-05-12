@@ -8,16 +8,17 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING )
+//@Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING )
+@MappedSuperclass
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String username;
-    private String role;
-    private String password;
+    protected long id;
+    protected String username;
+    protected String role;
+    protected String password;
     public User(){
 
     }
@@ -80,7 +81,7 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Role> roles=new HashSet<>();
-        roles.add(new Role("DESIGNER"));
+        roles.add(new Role(role));
         return roles;
     }
 

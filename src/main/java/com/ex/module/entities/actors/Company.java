@@ -21,6 +21,9 @@ public class Company extends User{
     )
     private Set<Designer> designerSet;
 
+    public Company() {
+        this.setRole("COMPANY");
+    }
 
     public String getName() {
         return companyName;

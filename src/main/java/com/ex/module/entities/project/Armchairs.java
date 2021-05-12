@@ -15,6 +15,12 @@ public class Armchairs extends Project{
     private String seat;
     private String base;
 
+    public Armchairs(){}
+    public Armchairs(String name,String description) {
+        this.setName(name);
+        this.setDescription(description);
+    }
+
     public String getDimension() {
         return dimension;
     }
@@ -53,5 +59,13 @@ public class Armchairs extends Project{
 
     public void setBase(String base) {
         this.base = base;
+    }
+
+    @Override
+    public String toString() {
+        return "Armchairs{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

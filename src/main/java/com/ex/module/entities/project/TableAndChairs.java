@@ -14,6 +14,14 @@ public class TableAndChairs extends Project{
     private String structure;
     private String base;
 
+
+    public TableAndChairs(String name,String description) {
+        this.setName(name);
+        this.setDescription(description);
+    }
+
+    public TableAndChairs() {
+    }
     public String getDimensions() {
         return dimensions;
     }
@@ -52,5 +60,12 @@ public class TableAndChairs extends Project{
 
     public void setBase(String base) {
         this.base = base;
+    }
+    @Override
+    public String toString() {
+        return "TableAndChairs{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
