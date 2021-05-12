@@ -14,13 +14,13 @@ import java.util.Set;
 @Component
 public class Designer extends User {
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "designerSet")
     private Set<Company> companyCollaboration;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Customer> customerSet;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Project> ownProjects;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "wantToCollaborate")
     private Set<Company> wantToCollaborate;
 
     public Set<Company> getCompanyCollaboration() {
