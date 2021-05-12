@@ -1,12 +1,7 @@
 package com.ex;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class A {
+<<<<<<< HEAD
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -29,16 +24,15 @@ public class A {
     public String getName() {
         return name;
     }
+=======
+    private String str;
+>>>>>>> 737e9d5dcd0061baa74e8227406c016619ba4d31
 
-    public void setName(String name) {
-        this.name = name;
+    public String getStr() {
+        return str;
     }
 
-    @Override
-    public String toString() {
-        return "A{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public void setStr(String str) {
+        this.str = str;
     }
 }
