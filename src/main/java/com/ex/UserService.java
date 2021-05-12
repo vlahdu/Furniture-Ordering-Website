@@ -40,6 +40,7 @@ public class UserService extends SessionUtil implements UserDetailsService {
         }else{
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             usersRepository.put(user.getUsername(),user);
+            System.out.println(user.getPassword());
             return true;
         }
     }
