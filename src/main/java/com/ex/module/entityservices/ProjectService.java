@@ -27,23 +27,23 @@ public class ProjectService extends SessionUtil implements ProjectDAO {
     @Override
     public List<Project> getAll() throws SQLException {
         openTransactionSession();
-        String sql="SELECT * FROM project";
-        Session session=getSession();
-        Query query =session.createNativeQuery(sql).addEntity(Project.class);
-        List<Project> designerList=query.list();
+        String sql ="select project from Project project";
+        Query query=getSession().createQuery(sql,Project.class);
+        List<Project> projectList=query.getResultList();
+        System.out.println(projectList);
         closeTransactionSession();
-        return designerList;
+        return projectList;
     }
 
     @Override
     public Project getById(long id) throws SQLException {
         openTransactionSession();
-        Session session=getSession();
-        String sql="SELECT * FROM project WHERE ID = " + id ;
-        Query query=session.createNativeQuery(sql).addEntity(Project.class);
-        Project project=(Project)query.getSingleResult();
+        String sql ="select project from Project project";
+        Query query=getSession().createQuery(sql,Project.class);
+        List<Project> projectList=query.getResultList();
+        System.out.println(projectList);
         closeTransactionSession();
-        return project;
+        return (Project)projectList.stream().filter((x) -> x.getId() == id).toArray()[0];
     }
 
     @Override

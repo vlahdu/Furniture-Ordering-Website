@@ -27,23 +27,23 @@ public class CustomerService extends SessionUtil implements CustomerDAO {
     @Override
     public List<Customer> getAll() throws SQLException {
         openTransactionSession();
-        String sql="SELECT * FROM customer";
-        Session session=getSession();
-        Query query =session.createNativeQuery(sql).addEntity(Customer.class);
-        List<Customer> designerList=query.list();
+        String sql ="select customer from Customer customer";
+        Query query=getSession().createQuery(sql,Customer.class);
+        List<Customer> customerList=query.getResultList();
+        System.out.println(customerList);
         closeTransactionSession();
-        return designerList;
+        return customerList;
     }
 
     @Override
     public Customer getById(long id) throws SQLException {
         openTransactionSession();
-        Session session=getSession();
-        String sql="SELECT * FROM customer WHERE ID = " + id ;
-        Query query=session.createNativeQuery(sql).addEntity(Customer.class);
-        Customer customer=(Customer)query.getSingleResult();
+        String sql ="select customer from Customer customer";
+        Query query=getSession().createQuery(sql,Customer.class);
+        List<Customer> customerList=query.getResultList();
+        System.out.println(customerList);
         closeTransactionSession();
-        return customer;
+        return (Customer)customerList.stream().filter((x) -> x.getId() == id).toArray()[0];
     }
 
     @Override

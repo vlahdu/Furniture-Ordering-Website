@@ -25,6 +25,7 @@ public class Company extends User{
         this.setRole("COMPANY");
     }
 
+
     public String getName() {
         return companyName;
     }

@@ -15,11 +15,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class CustomerServiceTest {
 
     @org.junit.jupiter.api.Test
-    void addCustomer() {
+    void addCustomer() throws SQLException {
+        CustomerService customerService = new CustomerService();
+        Customer customer=new Customer();
+        try {
+            customerService.addCustomer(customer);
+        }catch (SQLException e){
+            assertFalse(true,"the test throw an exception");
+        }finally {
+            customerService.remove(customer);
+            assertTrue(true,"the test not throw an exception");
+        }
     }
 
     @org.junit.jupiter.api.Test
-    @org.junit.jupiter.api.DisplayName("Ensure correct handling of zero")
     void getAll() throws SQLException {
         CustomerService customerService = new CustomerService();
         List<Customer> customerList = customerService.getAll();
@@ -31,18 +40,38 @@ class CustomerServiceTest {
     }
 
     @org.junit.jupiter.api.Test
-    @org.junit.jupiter.api.DisplayName("Ensure correct handling of returned name")
+    @org.junit.jupiter.api.DisplayName("Ensure correct handling of returned set")
     void getById() throws SQLException {
         CustomerService customerService = new CustomerService();
-        assertEquals("customer1",customerService.getById(1).getName(),"customer name");
+        assertNotNull(customerService.getById(1),"check customer not null");
     }
 
     @org.junit.jupiter.api.Test
     void update() {
-        assertEquals(0,0, "ceva");
+
+        try{
+            CustomerService customerService = new CustomerService();
+            Customer customer=customerService.getById(1);
+            customerService.update(customer);
+        }catch (SQLException e){
+            assertFalse(true,"the test throw an exception");
+        }finally {
+            assertTrue(true,"the test not throw an exception");
+        }
+
     }
 
     @org.junit.jupiter.api.Test
-    void remove() {
+    void remove() throws SQLException {
+        CustomerService customerService = new CustomerService();
+        Customer customer=new Customer();
+        try {
+            customerService.addCustomer(customer);
+            customerService.remove(customer);
+        }catch (SQLException e){
+            assertFalse(true,"the test throw an exception");
+        }finally {
+            assertTrue(true,"the test not throw an exception");
+        }
     }
 }
