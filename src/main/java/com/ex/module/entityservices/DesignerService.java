@@ -28,6 +28,7 @@ public class DesignerService extends SessionUtil implements DesignerDAO {
         String sql ="select designer from Designer designer";
         Query query=getSession().createQuery(sql,Designer.class);
         List<Designer> designers=query.getResultList();
+        System.out.println(designers);
         closeTransactionSession();
         return designers;
     }
@@ -38,6 +39,7 @@ public class DesignerService extends SessionUtil implements DesignerDAO {
         String sql ="select designer from Designer designer";
         Query query=getSession().createQuery(sql,Designer.class);
         List<Designer> designers=query.getResultList();
+        System.out.println(designers);
         closeTransactionSession();
         return (Designer)designers.stream().filter((x) -> x.getId() == id).toArray()[0];
     }

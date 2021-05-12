@@ -65,7 +65,7 @@ class DesignerServiceTest {
             designerService.addDesigner(designer);
             designerService.remove(designer);
         }catch (SQLException e){
-        assertFalse(true,"the test throw an exception");
+            assertFalse(true,"the test throw an exception");
         }finally {
             assertTrue(true,"the test not throw an exception");
         }
