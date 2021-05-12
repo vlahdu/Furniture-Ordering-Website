@@ -1,6 +1,8 @@
 package com.ex.module.entities.project;
 
 
+import com.ex.module.entities.actors.Designer;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,8 @@ public class Project {
     protected String description;
     protected String coating;
     protected double price;
+    @ManyToOne
+    protected Designer designer;
 
     public Project() {
     }
@@ -60,11 +64,23 @@ public class Project {
         this.price = price;
     }
 
+    public Designer getDesigner() {
+        return designer;
+    }
+
+    public void setDesigner(Designer designer) {
+        this.designer = designer;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", coating='" + coating + '\'' +
+                ", price=" + price +
+                ", designer=" + designer +
                 '}';
     }
 }

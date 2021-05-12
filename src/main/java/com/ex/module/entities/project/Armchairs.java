@@ -64,8 +64,17 @@ public class Armchairs extends Project{
     @Override
     public String toString() {
         return "Armchairs{" +
-                "name='" + name + '\'' +
+                "dimension='" + dimension + '\'' +
+                ", plainCoating='" + plainCoating + '\'' +
+                ", materialCoating='" + materialCoating + '\'' +
+                ", seat='" + seat + '\'' +
+                ", base='" + base + '\'' +
+                ", id=" + id +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", coating='" + coating + '\'' +
+                ", price=" + price +
+                ", designer=" + designer +
                 '}';
     }
 }

@@ -109,8 +109,22 @@ public class Sofa extends Project{
     @Override
     public String toString() {
         return "Sofa{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", coating='" + coating + '\'' +
+                ", price=" + price +
+                ", designer=" + designer +
+                ", dimension='" + dimension + '\'' +
+                ", upholstered='" + upholstered + '\'' +
+                ", color='" + color + '\'' +
+                ", structure='" + structure + '\'' +
+                ", suspension='" + suspension + '\'' +
+                ", sitings='" + sitings + '\'' +
+                ", records='" + records + '\'' +
+                ", Armrests='" + Armrests + '\'' +
+                ", base='" + base + '\'' +
+                ", included='" + included + '\'' +
                 '}';
     }
 }

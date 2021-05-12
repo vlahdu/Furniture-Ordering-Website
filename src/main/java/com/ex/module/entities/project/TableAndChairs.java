@@ -61,11 +61,21 @@ public class TableAndChairs extends Project{
     public void setBase(String base) {
         this.base = base;
     }
+
     @Override
     public String toString() {
         return "TableAndChairs{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", coating='" + coating + '\'' +
+                ", price=" + price +
+                ", designer=" + designer +
+                ", dimensions='" + dimensions + '\'' +
+                ", cover='" + cover + '\'' +
+                ", packing='" + packing + '\'' +
+                ", structure='" + structure + '\'' +
+                ", base='" + base + '\'' +
                 '}';
     }
 }

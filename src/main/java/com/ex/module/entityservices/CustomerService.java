@@ -31,6 +31,7 @@ public class CustomerService extends SessionUtil implements CustomerDAO {
         Query query=getSession().createQuery(sql,Customer.class);
         List<Customer> customerList=query.getResultList();
         System.out.println(customerList);
+        customerList.forEach((x)-> System.out.println(x.getLikedProjects()));
         closeTransactionSession();
         return customerList;
     }
