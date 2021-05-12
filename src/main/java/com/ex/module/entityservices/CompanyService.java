@@ -22,23 +22,23 @@ public class CompanyService extends SessionUtil implements CompanyDAO {
     @Override
     public List<Company> getAll() throws SQLException {
         openTransactionSession();
-        String sql="SELECT * FROM company";
-        Session session=getSession();
-        Query query =session.createNativeQuery(sql).addEntity(Company.class);
-        List<Company> designerList=query.list();
+        String sql ="select company from Company company";
+        Query query=getSession().createQuery(sql,Company.class);
+        List<Company> companyList=query.getResultList();
+        System.out.println(companyList);
         closeTransactionSession();
-        return designerList;
+        return companyList;
     }
 
     @Override
     public Company getById(long id) throws SQLException {
         openTransactionSession();
-        Session session=getSession();
-        String sql="SELECT * FROM company WHERE ID = " + id ;
-        Query query=session.createNativeQuery(sql).addEntity(Company.class);
-        Company company=(Company)query.getSingleResult();
+        String sql ="select company from Company company";
+        Query query=getSession().createQuery(sql,Company.class);
+        List<Company> companyList=query.getResultList();
+        System.out.println(companyList);
         closeTransactionSession();
-        return company;
+        return (Company)companyList.stream().filter((x) -> x.getId() == id).toArray()[0];
     }
 
     @Override

@@ -2,8 +2,6 @@ package Test;
 
 import com.ex.module.entities.actors.Company;
 import com.ex.module.entityservices.CompanyService;
-import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,11 +10,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CompanyServiceTest {
 
-    @Test
-    void addCompany() {
+    @org.junit.jupiter.api.Test
+    void addCompany() throws SQLException {
+        CompanyService companyService = new CompanyService();
+        Company company=new Company();
+        try {
+            companyService.addCompany(company);
+        }catch (SQLException e){
+            assertFalse(true,"the test throw an exception");
+        }finally {
+            companyService.remove(company);
+            assertTrue(true,"the test not throw an exception");
+        }
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void getAll() throws SQLException {
         CompanyService companyService = new CompanyService();
         List<Company> companyList = companyService.getAll();
@@ -27,19 +35,39 @@ class CompanyServiceTest {
         }
     }
 
-    @Test
-    @DisplayName("Ensure correct handling of returned name")
+    @org.junit.jupiter.api.Test
+    @org.junit.jupiter.api.DisplayName("Ensure correct handling of returned set")
     void getById() throws SQLException {
-       CompanyService companyService = new CompanyService();
-        assertEquals("comp",companyService.getById(1).getName(),"company name");
+        CompanyService companyService = new CompanyService();
+        assertNotNull(companyService.getById(2),"check company not null");
     }
 
     @org.junit.jupiter.api.Test
     void update() {
-        assertEquals(0,0, "ceva");
+
+        try{
+            CompanyService companyService = new CompanyService();
+            Company company=companyService.getById(2);
+            companyService.update(company);
+        }catch (SQLException e){
+            assertFalse(true,"the test throw an exception");
+        }finally {
+            assertTrue(true,"the test not throw an exception");
+        }
+
     }
 
     @org.junit.jupiter.api.Test
-    void remove() {
+    void remove() throws SQLException {
+        CompanyService companyService = new CompanyService();
+        Company company=new Company();
+        try {
+            companyService.addCompany(company);
+            companyService.remove(company);
+        }catch (SQLException e){
+            assertFalse(true,"the test throw an exception");
+        }finally {
+            assertTrue(true,"the test not throw an exception");
+        }
     }
 }
