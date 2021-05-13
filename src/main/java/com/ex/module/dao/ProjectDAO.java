@@ -10,7 +10,7 @@ import java.util.List;
  *
  * */
 public interface ProjectDAO {
-    void addProject(Project project)throws SQLException;
+    boolean addProject(Project project)throws SQLException;
     List<Project> getAll()throws SQLException;
     Project getById(long id)throws SQLException;
     void update(Project project)throws SQLException;

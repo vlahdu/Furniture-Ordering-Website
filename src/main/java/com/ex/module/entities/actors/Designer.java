@@ -1,12 +1,17 @@
 package com.ex.module.entities.actors;
 
+import com.ex.bl.SessionUtil;
 import com.ex.module.entities.project.Project;
+import com.ex.module.entityservices.DesignerService;
+import org.hibernate.Session;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
 
 
 import javax.persistence.*;
+import java.sql.SQLException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -57,11 +62,19 @@ public class Designer extends User {
     }
     //interaction function between company and designer
     //Set of collaboration
-    public void addCollaboration(Company company){
-        if(companyCollaboration == null) companyCollaboration=new HashSet<>();
-        companyCollaboration.add(company);
+    public void addCollaboration(Company company) throws SQLException {
+        DesignerService designerService = new DesignerService();
+        List<Designer> designers = designerService.getAll();
+        designers.forEach((x) -> System.out.println(x.getCompanyCollaboration()));
+        Designer designer = designerService.getById(id);
+        if(designer.getCompanyCollaboration() ==null){
+            designer.setCompanyCollaboration(new HashSet<>());
+        }
+        designer.getCompanyCollaboration().add(company);
+        designerService.update(designer);
     }
-    public void addWantToCollaborate(Company company){
+    public void addWantToCollaborate(Company company) throws SQLException {
+        DesignerService designerService = new DesignerService();
         if(wantToCollaborate == null) wantToCollaborate =new HashSet<>();
         wantToCollaborate.add(company);
     }
@@ -70,13 +83,25 @@ public class Designer extends User {
     }
     public void acceptAllRequest(){
         if(wantToCollaborate != null) {
-            wantToCollaborate.forEach((x) -> addCollaboration(x));
+            SessionUtil sessionUtil= new SessionUtil();
+            sessionUtil.openTransactionSession();
+            Session session = sessionUtil.getSession();
+            wantToCollaborate.forEach((x) -> {
+                try {
+                    addCollaboration(x);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            });
             wantToCollaborate.forEach((x) -> x.addCollaboration(this));
+            wantToCollaborate.forEach((x)->session.update(x));
             wantToCollaborate = null;
+            session.update(this);
+            sessionUtil.closeTransactionSession();
         }
     }
     public void declineAllRequest(){wantToCollaborate=null;}
-    public boolean acceptOneRequest(Company company){//need to create Exception if the object was not created
+    public boolean acceptOneRequest(Company company) throws SQLException {//need to create Exception if the object was not created
         if(wantToCollaborate.contains(company)){
             addCollaboration(company);
             wantToCollaborate.remove(company);
@@ -102,7 +127,13 @@ public class Designer extends User {
         }
     }
     public void sendRequestForCollaboration(Company company){
+        SessionUtil sessionUtil= new SessionUtil();
+        sessionUtil.openTransactionSession();
+        Session session = sessionUtil.getSession();
         company.addWantToCollaborate(this);
+        session.update(this);
+        session.update(company);
+        sessionUtil.closeTransactionSession();
     }
     public void addCustomer(Customer customer){
         if(customerSet == null) customerSet= new HashSet<>();
@@ -114,7 +145,6 @@ public class Designer extends User {
     public void setWantToCollaborate(Set<Company> wantToCollaborate) {
         this.wantToCollaborate = wantToCollaborate;
     }
-
 
     @Override
     public String toString() {

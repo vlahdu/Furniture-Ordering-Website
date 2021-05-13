@@ -10,7 +10,7 @@ import java.util.List;
  *
  * */
 public interface CompanyDAO {
-    void addCompany(Company company)throws SQLException;
+    boolean addCompany(Company company)throws SQLException;
     List<Company> getAll()throws SQLException;
     Company getById(long id)throws SQLException;
     void update(Company company)throws SQLException;

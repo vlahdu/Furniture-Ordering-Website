@@ -10,7 +10,7 @@ import java.util.List;
  *
  * */
 public interface CustomerDAO {
-    void addCustomer(Customer customer)throws SQLException;
+    boolean addCustomer(Customer customer)throws SQLException;
     List<Customer> getAll()throws SQLException;
     Customer getById(long id)throws SQLException;
     void update(Customer customer)throws SQLException;

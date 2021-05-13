@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class UserService extends SessionUtil implements UserDetailsService {
     //    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();;
+    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
     //    @Autowired
     private static Map<String, User> usersRepository =null;
 
