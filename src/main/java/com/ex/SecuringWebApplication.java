@@ -13,7 +13,10 @@ import com.ex.module.entityservices.CompanyService;
 import com.ex.module.entityservices.CustomerService;
 import com.ex.module.entityservices.DesignerService;
 import com.ex.module.entityservices.ProjectService;
+<<<<<<< HEAD
 import org.hibernate.Hibernate;
+=======
+>>>>>>> IonToncu
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.boot.SpringApplication;
@@ -28,7 +31,14 @@ import java.util.Set;
 public class SecuringWebApplication {
 
     public static void main(String[] args) throws Throwable {
+<<<<<<< HEAD
         SpringApplication.run(SecuringWebApplication.class, args);
+=======
+
+        ProjectService projectService=new ProjectService();
+
+
+>>>>>>> IonToncu
     }
 
 }

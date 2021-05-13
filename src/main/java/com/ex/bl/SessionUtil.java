@@ -1,6 +1,8 @@
 package com.ex.bl;
 
-
+/**
+ * @author IonToncu
+ */
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
