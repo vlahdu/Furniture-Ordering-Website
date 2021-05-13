@@ -114,7 +114,7 @@ public class Sofa extends Project{
                 ", description='" + description + '\'' +
                 ", coating='" + coating + '\'' +
                 ", price=" + price +
-                ", designer=" + designer +
+ //               ", designer=" + designer +
                 ", dimension='" + dimension + '\'' +
                 ", upholstered='" + upholstered + '\'' +
                 ", color='" + color + '\'' +

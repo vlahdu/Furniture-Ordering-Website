@@ -39,6 +39,7 @@ public class Customer extends User {
     }
     public void addLikedProject(Project project){
         if(likedProjects == null) likedProjects =new HashSet<>();
+        project.getDesigner().addCustomer(this);//add customer to customerSet
         likedProjects.add(project);
     }
 

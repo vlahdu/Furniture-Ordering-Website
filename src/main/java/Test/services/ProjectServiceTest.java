@@ -1,4 +1,4 @@
-package Test;
+package Test.services;
 
 import com.ex.module.entities.project.Project;
 import com.ex.module.entityservices.ProjectService;

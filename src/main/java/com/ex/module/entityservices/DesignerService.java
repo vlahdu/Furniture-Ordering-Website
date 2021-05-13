@@ -28,19 +28,21 @@ public class DesignerService extends SessionUtil implements DesignerDAO {
         String sql ="select designer from Designer designer";
         Query query=getSession().createQuery(sql,Designer.class);
         List<Designer> designerList=query.getResultList();
-        System.out.println(designerList);
+        designerList.forEach((x)-> System.out.println(x));
+        System.out.println("*******************initialization of fields***************");
+        designerList.forEach((x)-> System.out.println(x.getCompanyCollaboration()));
+        designerList.forEach((x)-> System.out.println(x.getOwnProjects()));
+        designerList.forEach((x)-> System.out.println(x.getCustomerSet()));
+        designerList.forEach((x)-> System.out.println(x.getWantToCollaborate()));
+        System.out.println("**********************************");
+        //designers.forEach((x)-> Hibernate.initialize(x.getCompanyCollaboration()));
         closeTransactionSession();
         return designerList;
     }
 
     @Override
     public Designer getById(long id) throws SQLException {
-        openTransactionSession();
-        String sql ="select designer from Designer designer";
-        Query query=getSession().createQuery(sql,Designer.class);
-        List<Designer> designerList=query.getResultList();
-        System.out.println(designerList);
-        closeTransactionSession();
+        List<Designer> designerList =getAll();
         return (Designer)designerList.stream().filter((x) -> x.getId() == id).toArray()[0];
     }
 

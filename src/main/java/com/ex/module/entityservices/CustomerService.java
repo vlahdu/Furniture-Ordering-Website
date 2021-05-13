@@ -32,18 +32,14 @@ public class CustomerService extends SessionUtil implements CustomerDAO {
         List<Customer> customerList=query.getResultList();
         System.out.println(customerList);
         customerList.forEach((x)-> System.out.println(x.getLikedProjects()));
+        customerList.forEach((x)-> System.out.println());
         closeTransactionSession();
         return customerList;
     }
 
     @Override
     public Customer getById(long id) throws SQLException {
-        openTransactionSession();
-        String sql ="select customer from Customer customer";
-        Query query=getSession().createQuery(sql,Customer.class);
-        List<Customer> customerList=query.getResultList();
-        System.out.println(customerList);
-        closeTransactionSession();
+        List<Customer> customerList=getAll();
         return (Customer)customerList.stream().filter((x) -> x.getId() == id).toArray()[0];
     }
 

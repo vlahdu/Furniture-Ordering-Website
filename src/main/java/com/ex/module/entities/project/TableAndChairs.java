@@ -70,7 +70,7 @@ public class TableAndChairs extends Project{
                 ", description='" + description + '\'' +
                 ", coating='" + coating + '\'' +
                 ", price=" + price +
-                ", designer=" + designer +
+//                ", designer=" + designer +
                 ", dimensions='" + dimensions + '\'' +
                 ", cover='" + cover + '\'' +
                 ", packing='" + packing + '\'' +

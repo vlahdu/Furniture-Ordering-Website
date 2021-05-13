@@ -17,7 +17,7 @@ public class Project {
     protected String description;
     protected String coating;
     protected double price;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     protected Designer designer;
 
     public Project() {

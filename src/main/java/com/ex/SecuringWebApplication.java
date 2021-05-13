@@ -13,6 +13,7 @@ import com.ex.module.entityservices.CompanyService;
 import com.ex.module.entityservices.CustomerService;
 import com.ex.module.entityservices.DesignerService;
 import com.ex.module.entityservices.ProjectService;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.boot.SpringApplication;
@@ -27,43 +28,43 @@ import java.util.Set;
 public class SecuringWebApplication {
 
     public static void main(String[] args) throws Throwable {
-        ProjectService projectService = new ProjectService();
         DesignerService designerService = new DesignerService();
-        CustomerService customerService = new CustomerService();
         CompanyService companyService = new CompanyService();
+//        List<Designer> designers = designerService.getAll();
+////        designers.forEach((x) -> System.out.println(x.getWantToCollaborate()) );
+//        Designer designer=(Designer)designers.toArray()[0];
+//        Company company =(Company) designer.getCompanyCollaboration().toArray()[0];
+//        System.out.println(company);
+////        designer.acceptAllRequest();
 
-        //projects
-        Armchairs armchairs = new Armchairs("armchair","commode armchair");
-        Sofa sofa = new Sofa("sofa","commode sofa");
-        TableAndChairs tableAndChairs = new TableAndChairs("chair","commode chair");
-        //designer
-        Designer designer = new Designer("designer","passwordD");
-        //Customer
-        Customer customer = new Customer("customer","passwordC");
-        //Company
-        Company company = new Company("company","passwordCo");
-
-        //Designer actions
-        designer.sendWantToCollaboration(company);
-        designer.addProject(armchairs);
-        designer.addProject(sofa);
-        designer.addProject(tableAndChairs);
-        designer.addCustomer(customer);
-        //Customer
-        customer.addLikedProject(armchairs);
-        customer.addLikedProject(sofa);
-        customer.addLikedProject(tableAndChairs);
-        //Company
+//        List<Company> companies =companyService.getAll();
+//
+//        Company company=(Company) companies.toArray()[0];
+//        Designer designer =(Designer) company.getWantToCollaborate().toArray()[0];
+//        System.out.println("wow->"+designer);
+//        System.out.println(company.getDesignerSet());
+//        company.acceptAllRequest();
+//        designerService.update(designer);
+//        companyService.update(company);
+//
+        SessionUtil sessionUtil = new SessionUtil();
+        sessionUtil.openTransactionSession();
+        Session session = sessionUtil.getSession();
+        String sql ="select company from Company company";
+        Query query=session.createQuery(sql,Company.class);
+        List<Company> companies=query.getResultList();
+        System.out.println(companies);
+        Company company=(Company) companies.toArray()[0];
+        Designer designer =(Designer) company.getWantToCollaborate().toArray()[0];
+        System.out.println("wow->"+designer);
+        System.out.println(company.getDesignerSet());
         company.acceptAllRequest();
-        company.sendWantToCollaboration(designer);
-        designer.acceptAllRequest();
 
-        projectService.addProject(armchairs);
-        projectService.addProject(sofa);
-        projectService.addProject(tableAndChairs);
-        designerService.addDesigner(designer);
-        companyService.addCompany(company);
-        customerService.addCustomer(customer);
+        session.update(company);
+        session.update(designer);
+        sessionUtil.closeTransactionSession();
+
+
 
     }
 

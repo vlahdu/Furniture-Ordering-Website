@@ -21,7 +21,7 @@ public class Designer extends User {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Project> ownProjects;
     @ManyToMany(mappedBy = "wantToCollaborate")
-    private Set<Company> wantToCollaborate;
+    private Set<Company> wantToCollaborate =null;
 
     public Set<Company> getCompanyCollaboration() {
         return companyCollaboration;
@@ -53,10 +53,11 @@ public class Designer extends User {
     public void  addProject(Project project){
         if(ownProjects == null) ownProjects=new HashSet<>();
         ownProjects.add(project);
+        project.setDesigner(this);
     }
     //interaction function between company and designer
     //Set of collaboration
-    private void addCollaboration(Company company){
+    public void addCollaboration(Company company){
         if(companyCollaboration == null) companyCollaboration=new HashSet<>();
         companyCollaboration.add(company);
     }
@@ -68,8 +69,11 @@ public class Designer extends User {
         company.addWantToCollaborate(this);
     }
     public void acceptAllRequest(){
-        wantToCollaborate.forEach((x) ->addCollaboration(x));
-        wantToCollaborate =null;
+        if(wantToCollaborate != null) {
+            wantToCollaborate.forEach((x) -> addCollaboration(x));
+            wantToCollaborate.forEach((x) -> x.addCollaboration(this));
+            wantToCollaborate = null;
+        }
     }
     public void declineAllRequest(){wantToCollaborate=null;}
     public boolean acceptOneRequest(Company company){//need to create Exception if the object was not created
@@ -104,13 +108,21 @@ public class Designer extends User {
         if(customerSet == null) customerSet= new HashSet<>();
         customerSet.add(customer);
     }
+    public Set<Company> getWantToCollaborate() {
+        return wantToCollaborate;
+    }
+    public void setWantToCollaborate(Set<Company> wantToCollaborate) {
+        this.wantToCollaborate = wantToCollaborate;
+    }
+
+
     @Override
     public String toString() {
         return "Designer{" +
-                "companyCollaboration=" + companyCollaboration +
-                ", customerSet=" + customerSet +
-                ", ownProjects=" + ownProjects +
-                ", wantToCollaborate=" + wantToCollaborate +
+//                "companyCollaboration=" + companyCollaboration +
+//                ", customerSet=" + customerSet +
+//                ", ownProjects=" + ownProjects +
+//                ", wantToCollaborate=" + wantToCollaborate +
                 ", id=" + id +
                 ", username='" + username + '\'' +
                 ", role='" + role + '\'' +

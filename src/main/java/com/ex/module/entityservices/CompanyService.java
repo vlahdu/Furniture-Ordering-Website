@@ -25,6 +25,9 @@ public class CompanyService extends SessionUtil implements CompanyDAO {
         String sql ="select company from Company company";
         Query query=getSession().createQuery(sql,Company.class);
         List<Company> companyList=query.getResultList();
+        companyList.forEach((x)-> System.out.println(x.getCustomerSet()));
+        companyList.forEach((x)-> System.out.println(x.getDesignerSet()));
+        companyList.forEach((x)-> System.out.println(x.getWantToCollaborate()));
         System.out.println(companyList);
         closeTransactionSession();
         return companyList;
@@ -32,12 +35,7 @@ public class CompanyService extends SessionUtil implements CompanyDAO {
 
     @Override
     public Company getById(long id) throws SQLException {
-        openTransactionSession();
-        String sql ="select company from Company company";
-        Query query=getSession().createQuery(sql,Company.class);
-        List<Company> companyList=query.getResultList();
-        System.out.println(companyList);
-        closeTransactionSession();
+        List<Company> companyList=getAll();
         return (Company)companyList.stream().filter((x) -> x.getId() == id).toArray()[0];
     }
 

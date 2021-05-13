@@ -1,4 +1,4 @@
-package Test;
+package Test.services;
 
 import com.ex.module.entities.actors.Customer;
 import com.ex.module.entityservices.CustomerService;

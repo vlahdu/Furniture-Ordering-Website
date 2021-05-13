@@ -74,7 +74,7 @@ public class Armchairs extends Project{
                 ", description='" + description + '\'' +
                 ", coating='" + coating + '\'' +
                 ", price=" + price +
-                ", designer=" + designer +
+//                ", designer=" + designer +
                 '}';
     }
 }

@@ -14,18 +14,18 @@ public class Company extends User{
     private String address;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Customer> customerSet;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
-            name = "COLLABORATING_BETWEEN_COMP_AND_DES",
-            joinColumns ={@JoinColumn(name = "COMPANY")},
-            inverseJoinColumns ={@JoinColumn(name = "DESIGNER")}
+            name = "COLLABORATING",
+            joinColumns =@JoinColumn(name = "COMPANY"),
+            inverseJoinColumns =@JoinColumn(name = "DESIGNER")
     )
     private Set<Designer> designerSet;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
-            name = "DESIRE TO_COLLABORATING_BETWEEN_COMP_AND_DES",
-            joinColumns ={@JoinColumn(name = "COMPANY")},
-            inverseJoinColumns ={@JoinColumn(name = "DESIGNER")}
+            name = "DESIRE",
+            joinColumns =@JoinColumn(name = "COMPANY"),
+            inverseJoinColumns =@JoinColumn(name = "DESIGNER")
     )
     private Set<Designer> wantToCollaborate;
 
@@ -58,7 +58,7 @@ public class Company extends User{
     }
     //interaction function between company and designer
     //Set of collaboration
-    private void addCollaboration(Designer designer){
+    public void addCollaboration(Designer designer){
         if(designerSet == null) designerSet=new HashSet<>();
         designerSet.add(designer);
     }
@@ -72,9 +72,19 @@ public class Company extends User{
     public void acceptAllRequest(){
         if(wantToCollaborate != null) {
             wantToCollaborate.forEach((x) -> addCollaboration(x));
+            wantToCollaborate.forEach((x) -> x.addCollaboration(this));
             wantToCollaborate = null;
         }
     }
+
+    public Set<Designer> getWantToCollaborate() {
+        return wantToCollaborate;
+    }
+
+    public void setWantToCollaborate(Set<Designer> wantToCollaborate) {
+        this.wantToCollaborate = wantToCollaborate;
+    }
+
     public void declineAllRequest(){wantToCollaborate=null;}
     public boolean acceptOneRequest(Designer designer){//need to create Exception if the object was not created
         if(wantToCollaborate.contains(designer)){
@@ -104,14 +114,14 @@ public class Company extends User{
     public void sendRequestForCollaboration(Designer designer){
         designer.addWantToCollaborate(this);
     }
+
     @Override
     public String toString() {
         return "Company{" +
                 "companyName='" + companyName + '\'' +
                 ", address='" + address + '\'' +
-                ", customerSet=" + customerSet +
-                ", designerSet=" + designerSet +
-                ", wantToCollaborate=" + wantToCollaborate +
+//                ", customerSet=" + customerSet +
+//                ", designerSet=" + designerSet +
                 ", id=" + id +
                 ", username='" + username + '\'' +
                 ", role='" + role + '\'' +
