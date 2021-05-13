@@ -46,11 +46,16 @@ public class CustomerService extends SessionUtil implements CustomerDAO, UserDet
             System.out.println(customer.getPassword());
             openTransactionSession();
             Session session=getSession();
-            session.save(customer);
+            getSave(customer, session);
             closeTransactionSession();
             return true;
         }
     }
+
+    private Object getSave(Customer customer, Session session) {
+        return session.save(customer);
+    }
+
     @Override
     public List<Customer> getAll() throws SQLException {
         openTransactionSession();

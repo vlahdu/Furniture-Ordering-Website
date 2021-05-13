@@ -30,8 +30,8 @@ public class CompanyService extends SessionUtil implements CompanyDAO, UserDetai
         return companyRepository;
     }
     public void loadRepository() throws SQLException {
-        List<Company> companies = getAll();
-        companies.forEach((x) -> companyRepository.put(x.getUsername(), x));
+        List<Company> companies=getAll();
+        companies.forEach((x) -> companyRepository.put(x.getUsername(),x));
     }
 
     @Override
