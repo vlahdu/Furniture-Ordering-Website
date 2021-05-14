@@ -7,22 +7,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.ui.Model;
+
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 /**
  * @author IonToncu
-=======
-
-import javax.validation.Valid;
-import java.util.Map;
-
-/*
- * @IonToncu
->>>>>>> 737e9d5dcd0061baa74e8227406c016619ba4d31
  *
  */
 @Controller
@@ -47,7 +39,7 @@ public class HelloController {
         model.addAttribute("name",name);
         return "ceva";
     }
-<<<<<<< HEAD
+
     @GetMapping("/test")
     public String sayTest(@RequestParam(value = "ceva",required = false) String ceva,Model model){
         model.addAttribute("ceva",ceva);
@@ -60,12 +52,12 @@ public class HelloController {
         return "new";
     }
     @PostMapping()
-    public String createObject(@ModelAttribute("a") A a ,Model model){
-        model.addAttribute("a",a);
+    public String createObject(@ModelAttribute("a") A a ,Model model) {
+        model.addAttribute("a", a);
         System.out.println(a);
-       System.out.println("ceva");
-        return  "redirect:/test";
-=======
+        System.out.println("ceva");
+        return "redirect:/test";
+    }
 
     @GetMapping("/registration")
     public String registration(Model model) {
@@ -101,6 +93,6 @@ public class HelloController {
         }
 
         return "redirect:/";
->>>>>>> 737e9d5dcd0061baa74e8227406c016619ba4d31
+
     }
 }

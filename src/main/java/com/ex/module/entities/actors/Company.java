@@ -15,17 +15,10 @@ import java.util.Set;
  * @author IonToncu
  */
 @Entity
-<<<<<<< HEAD:src/main/java/com/ex/entities/actors/Company.java
 public class Company extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-=======
-@DiscriminatorValue("Company")
-@Component
-public class Company extends User{
-
->>>>>>> 737e9d5dcd0061baa74e8227406c016619ba4d31:src/main/java/com/ex/module/entities/actors/Company.java
     private String companyName;
     private String address;
 
@@ -48,16 +41,13 @@ public class Company extends User{
 
 
     public Company() {
-<<<<<<< HEAD:src/main/java/com/ex/entities/actors/Company.java
+
         this.role="COMPANY";
     }
 
 
     public long getId() {
         return id;
-=======
-        this.setRole("COMPANY");
->>>>>>> 737e9d5dcd0061baa74e8227406c016619ba4d31:src/main/java/com/ex/module/entities/actors/Company.java
     }
     public Company(String userName,String password){
         this();

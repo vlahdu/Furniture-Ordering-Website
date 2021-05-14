@@ -15,13 +15,13 @@ import java.util.List;
  * */
 public class ProjectService extends SessionUtil implements ProjectDAO {
     @Override
-    public void addProject(Project project) throws SQLException {
+    public boolean addProject(Project project) throws SQLException {
 
         openTransactionSession();
         Session session=getSession();
         session.save(project);
         closeTransactionSession();
-
+        return true;
     }
 
     @Override

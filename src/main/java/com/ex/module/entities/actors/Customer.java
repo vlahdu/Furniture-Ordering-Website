@@ -10,32 +10,14 @@ import java.util.Set;
  * @author IonToncu
  */
 @Entity
-<<<<<<< HEAD:src/main/java/com/ex/entities/actors/Customer.java
+
 public class Customer extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-=======
-@DiscriminatorValue("Customer")
-@Component
-public class Customer extends User {
-
->>>>>>> 737e9d5dcd0061baa74e8227406c016619ba4d31:src/main/java/com/ex/module/entities/actors/Customer.java
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Project>likedProjects;
     private String name;
-
-<<<<<<< HEAD
-
-=======
-    public Customer() {
-        this.role="CUSTOMER";
-    }
-
-    public Set<Project> getLikedProjects() {
-        return likedProjects;
-    }
->>>>>>> IonToncu
     public Customer() {
         this.setRole("CUSTOMER");
     }

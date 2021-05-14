@@ -62,7 +62,6 @@ public class DesignerService extends SessionUtil implements DesignerDAO, UserDet
         openTransactionSession();
         String sql ="select designer from Designer designer";
         Query query=getSession().createQuery(sql,Designer.class);
-<<<<<<< HEAD
         List<Designer> designerList=query.getResultList();
         designerList.forEach((x)-> System.out.println(x));
         System.out.println("*******************initialization of fields***************");
@@ -71,27 +70,13 @@ public class DesignerService extends SessionUtil implements DesignerDAO, UserDet
         designerList.forEach((x)-> System.out.println(x.getCustomerSet()));
         designerList.forEach((x)-> System.out.println(x.getWantToCollaborate()));
         System.out.println("**********************************");
-=======
-        List<Designer> designers=query.getResultList();
-        System.out.println(designers);
->>>>>>> IonToncu
         closeTransactionSession();
         return designerList;
     }
     @Override
     public Designer getById(long id) throws SQLException {
-<<<<<<< HEAD
         List<Designer> designerList =getAll();
         return (Designer)designerList.stream().filter((x) -> x.getId() == id).toArray()[0];
-=======
-        openTransactionSession();
-        Session session=getSession();
-        String sql ="select designer from Designer designer";
-        Query query=session.createQuery(sql,Designer.class);
-        List<Designer> designers=query.getResultList();
-        closeTransactionSession();
-        return (Designer)designers.stream().filter((x) -> x.getId() == id).toArray()[0];
->>>>>>> IonToncu
     }
     @Override
     public void update(Designer designer) throws SQLException {

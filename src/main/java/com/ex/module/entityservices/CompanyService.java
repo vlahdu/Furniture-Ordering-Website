@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
-<<<<<<< HEAD
 import java.util.Map;
 
 public class CompanyService extends SessionUtil implements CompanyDAO, UserDetailsService {
@@ -31,25 +30,8 @@ public class CompanyService extends SessionUtil implements CompanyDAO, UserDetai
         return companyRepository;
     }
     public void loadRepository() throws SQLException {
-        List<Company> companies=getAll();
-        companies.forEach((x) -> companyRepository.put(x.getUsername(),x));
-=======
-/**
- * @author IonToncu
- */
-public class CompanyService extends SessionUtil implements CompanyDAO {
-    @Override
-    public void addCompany(Company company) throws SQLException {
-<<<<<<< HEAD:src/main/java/com/ex/entityservices/CompanyService.java
-
-=======
->>>>>>> 737e9d5dcd0061baa74e8227406c016619ba4d31:src/main/java/com/ex/module/entityservices/CompanyService.java
-        openTransactionSession();
-        Session session=getSession();
-        session.save(company);
-        closeTransactionSession();
-
->>>>>>> IonToncu
+        List<Company> companies = getAll();
+        companies.forEach((x) -> companyRepository.put(x.getUsername(), x));
     }
 
     @Override
