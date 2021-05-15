@@ -18,7 +18,9 @@ import java.util.Set;
 @DiscriminatorValue("Designer")
 @Component
 public class Designer extends User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id;
     @ManyToMany(mappedBy = "designerSet")
     private Set<Company> companyCollaboration;
     @OneToMany(cascade = CascadeType.ALL)
@@ -27,6 +29,14 @@ public class Designer extends User {
     private Set<Project> ownProjects;
     @ManyToMany(mappedBy = "wantToCollaborate")
     private Set<Company> wantToCollaborate =null;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Set<Company> getCompanyCollaboration() {
         return companyCollaboration;

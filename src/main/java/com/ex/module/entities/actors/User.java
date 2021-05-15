@@ -13,9 +13,6 @@ import java.util.Set;
 //@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING )
 @MappedSuperclass
 public class User implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected long id;
     protected String username;
     protected String role;
     protected String password;
@@ -33,13 +30,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getRole() {
         return role;

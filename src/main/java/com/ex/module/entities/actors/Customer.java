@@ -11,11 +11,20 @@ import java.util.Set;
 @DiscriminatorValue("Customer")
 @Component
 public class Customer extends User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Project>likedProjects;
     private String name;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Customer() {
         this.setRole("CUSTOMER");

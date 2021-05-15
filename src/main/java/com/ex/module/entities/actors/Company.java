@@ -15,7 +15,9 @@ import java.util.Set;
 @DiscriminatorValue("Company")
 @Component
 public class Company extends User{
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id;
     private String companyName;
     private String address;
     @OneToMany(cascade = CascadeType.ALL)
@@ -35,6 +37,29 @@ public class Company extends User{
     )
     private Set<Designer> wantToCollaborate;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setCustomerSet(Set<Customer> customerSet) {
+        this.customerSet = customerSet;
+    }
+
+    public void setDesignerSet(Set<Designer> designerSet) {
+        this.designerSet = designerSet;
+    }
 
     public Company() {
         this.setRole("COMPANY");
