@@ -41,6 +41,22 @@ products, in case he chose a product from the designer, he will also choose the
 company that will serve him, and a request will be sent to that company, and the
 company will respond back to the customer, if it can serve him
 
+## Site run specifications:
+
+* Build Spring Boot Project with Maven
+To be able to run your Spring Boot app you will need to first build it. To build and package a Spring Boot app into a single executable Jar file with a Maven, use the below command. You will need to run it from the project folder which contains the pom.xml file.
+> maven package
+or you can also use
+> mvn install
+
+* Run Spring Boot app with java -jar command
+To run your Spring Boot app from a command line in a Terminal window you can you the java -jar command. This is provided your Spring Boot app was packaged as an executable jar file.
+
+> java -jar target/com.fow.jar
+
+* Run Spring Boot app using Maven
+You can also use Maven plugin to run your Spring Boot app. Use the below example to run your Spring Boot app with Maven plugin:
+> mvn spring-boot:run
 ---
 ## Use Case UML DIAGRAM:
 ![image](https://user-images.githubusercontent.com/69470698/118040741-9f01a800-b37a-11eb-8d23-e2b00b31fa44.png)
