@@ -69,7 +69,7 @@ mvn install
 To run the Spring Boot app from the command line in the Terminal window you can use the java -jar command. 
 
 ```
-java -jar target/com.fow.jar
+java -jar target/demo-0.0.1-SNAPSHOT.jar
 ```
 
 * Run Spring Boot app using Maven
