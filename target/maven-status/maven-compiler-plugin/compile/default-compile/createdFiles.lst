@@ -1,6 +1,0 @@
-com\ex\entityservices\DesignerService.class
-Test\DesignerServiceTest.class
-com\ex\dao\CompanyDAO.class
-com\ex\entityservices\CompanyService.class
-com\ex\dao\DesignerDAO.class
-Test\ProjectServiceTest.class
