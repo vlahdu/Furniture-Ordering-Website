@@ -1,4 +1,5 @@
 # Furniture Ordering Website
+
 ---
 ### Team Members: Țoncu Ion, Cotorobai Vlad
 
@@ -41,5 +42,45 @@ products, in case he chose a product from the designer, he will also choose the
 company that will serve him, and a request will be sent to that company, and the
 company will respond back to the customer, if it can serve him
 
+## SETUP & RUN:
+To set up and run the project locally on your machine, please follow the next steps.
+
+* Clone the repository using:
+
+```
+git clone https://github.com/fis2021/Furniture-Ordering-Website
+```
+
+
+* Build Spring Boot Project with Maven
+To be able to run the Spring Boot app you will need to first build it. Use the below command. 
+
+```
+maven package
+```
+
+or you can also use
+
+```
+mvn install
+```
+
+* Run Spring Boot app with java -jar command
+To run the Spring Boot app from the command line in the Terminal window you can use the java -jar command. 
+
+```
+java -jar target/com.fow.jar
+```
+
+* Run Spring Boot app using Maven
+=Use the line below to run the Spring Boot app with the Maven plugin:
+
+```
+mvn spring-boot:run
+```
+* Navigate to http://localhost:8080/
+
 ---
 ## Use Case UML DIAGRAM:
+![image](https://user-images.githubusercontent.com/69470698/118040741-9f01a800-b37a-11eb-8d23-e2b00b31fa44.png)
+
